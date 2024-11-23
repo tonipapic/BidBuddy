@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="PresentationLayer.UserControls.CardPaymentUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PresentationLayer.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="495" d:DesignWidth="683.5" Background="White">
+    <Grid>
+        <Button x:Name="btnPay" Click="btnPay_Click" Content="Plati" HorizontalAlignment="Left" Margin="600,453,0,0" VerticalAlignment="Top" Width="66"/>
+        <GroupBox Header="Podaci o računu" Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="423" Width="334">
+            <StackPanel Orientation="Vertical" Margin="20">
+
+                <Label Content="Ime"/>
+                <TextBox x:Name="txtFirstName" TextWrapping="NoWrap" Text="" Width="150" HorizontalAlignment="Left"/>
+
+                <Label Content="Prezime" Margin="0,10,0,0"/>
+                <TextBox x:Name="txtLastName" TextWrapping="NoWrap" Text="" Width="150" HorizontalAlignment="Left"/>
+
+                <Label Content="Adresa" Margin="0,10,0,0"/>
+                <TextBox x:Name="txtAddress" TextWrapping="NoWrap" Text="" Width="150" HorizontalAlignment="Left"/>
+                <Label Content="Ulica i kućni broj" HorizontalContentAlignment="Center" Width="150" HorizontalAlignment="Left" FontSize="11"/>
+
+                <Label Content="Poštanski broj" Margin="0,10,0,0"/>
+                <TextBox x:Name="txtPostalCode" TextWrapping="NoWrap" Text="" Width="150" HorizontalAlignment="Left"/>
+
+                <Label Content="Mjesto stanovanja" Margin="0,10,0,0"/>
+                <TextBox x:Name="txtCity" TextWrapping="NoWrap" Text="" Width="150" HorizontalAlignment="Left"/>
+
+                <Label Content="Država" Margin="0,10,0,0"/>
+                <TextBox x:Name="txtCountry" TextWrapping="NoWrap" Text="" Width="150" HorizontalAlignment="Left"/>
+
+
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Podaci o kartici" Margin="367,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="423" Width="299">
+            <StackPanel Orientation="Vertical" Margin="20">
+
+                <Label Content="Broj kartice"/>
+                <TextBox x:Name="txtCardNumber" TextWrapping="NoWrap" Text="" Width="150" HorizontalAlignment="Left"/>
+
+                <Label Content="Datum isteka" Margin="0,10,0,0"/>
+                <TextBox x:Name="txtExpireDate"  TextWrapping="NoWrap" Text="" Width="150" HorizontalAlignment="Left"/>
+                <Label Content="MM/YY" HorizontalContentAlignment="Center" Width="150" HorizontalAlignment="Left" FontSize="11"/>
+
+                <Label Content="CVV" Margin="0,10,0,0"/>
+                <TextBox x:Name="txtCvv" TextWrapping="NoWrap" Text="" Width="150" HorizontalAlignment="Left"/>
+
+            </StackPanel>
+        </GroupBox>
+
+    </Grid>
+</UserControl>

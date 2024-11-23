@@ -1,0 +1,78 @@
+﻿<UserControl x:Class="PresentationLayer.Navigation.NavigationMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PresentationLayer.Navigation"
+             mc:Ignorable="d" 
+             d:DesignHeight="587.317" d:DesignWidth="256.436">
+    
+    <DockPanel Background="#FF6C193C" LastChildFill="True">
+
+        <Button x:Name="btnProfile" Click="btnProfile_Click" DockPanel.Dock="Bottom" Style="{StaticResource ButtonFlatStyle}">
+            <StackPanel Style="{StaticResource ButtonStackPanelStyle}">
+                <Image Source="/Resources/Icons/icon-user.png" Style="{StaticResource ButtonImageStyle}"/>
+                <Label x:Name="lblUser" Content="Korisnik" Style="{StaticResource ButtonLabelStyle}"/>
+            </StackPanel>
+        </Button>
+
+        <StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="8">
+                <Image Width="32" Height="32" Source="/Resources/Icons/icon-bars.png"/>
+                <Label Content="Izbornik" Foreground="White" FontSize="16" VerticalAlignment="Center"/>
+            </StackPanel>
+
+            <Button x:Name="btnAuctions" Click="btnAuctions_Click" Style="{StaticResource ButtonFlatStyle}">
+                <StackPanel Style="{StaticResource ButtonStackPanelStyle}">
+                    <Image Source="/Resources/Icons/icon-book.png" Style="{StaticResource ButtonImageStyle}"/>
+                    <Label Content="Aukcije" Style="{StaticResource ButtonLabelStyle}"/>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="btnMyAuctions" Click="btnMyAuctions_Click" Style="{StaticResource ButtonFlatStyle}">
+                <StackPanel Style="{StaticResource ButtonStackPanelStyle}">
+                    <Image Source="/Resources/Icons/icon-user-tag.png" Style="{StaticResource ButtonImageStyle}"/>
+                    <Label Content="Moja aukcije" Style="{StaticResource ButtonLabelStyle}"/>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="btnMyBids" Click="btnMyBids_Click" Style="{StaticResource ButtonFlatStyle}">
+                <StackPanel Style="{StaticResource ButtonStackPanelStyle}">
+                    <Image Source="/Resources/Icons/icon-book-reader.png" Style="{StaticResource ButtonImageStyle}"/>
+                    <Label Content="Moje ponude" Style="{StaticResource ButtonLabelStyle}"/>
+                </StackPanel>
+            </Button>
+            
+            <Button x:Name="btnAllAuctions" Click="btnAllAuctions_Click" Style="{StaticResource ButtonFlatStyle}">
+                <StackPanel Style="{StaticResource ButtonStackPanelStyle}">
+                    <Image Source="/Resources/Icons/icon-clock-left.png" Style="{StaticResource ButtonImageStyle}"/>
+                    <Label Content="Sve aukcije" Style="{StaticResource ButtonLabelStyle}"/>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="btnUsers" Click="btnUsers_Click" Style="{StaticResource ButtonFlatStyle}">
+                <StackPanel Style="{StaticResource ButtonStackPanelStyle}">
+                    <Image Source="/Resources/Icons/icon-users.png" Style="{StaticResource ButtonImageStyle}"/>
+                    <Label Content="Korisnici" Style="{StaticResource ButtonLabelStyle}"/>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="btnCategories" Click="btnCategories_Click" Style="{StaticResource ButtonFlatStyle}">
+                <StackPanel Style="{StaticResource ButtonStackPanelStyle}">
+                    <Image Source="/Resources/Icons/icon-tags.png" Style="{StaticResource ButtonImageStyle}"/>
+                    <Label Content="Kategorije" Style="{StaticResource ButtonLabelStyle}"/>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="btnRegions" Click="btnRegions_Click" Style="{StaticResource ButtonFlatStyle}">
+                <StackPanel Style="{StaticResource ButtonStackPanelStyle}">
+                    <Image Source="/Resources/Icons/icon-location-dot.png" Style="{StaticResource ButtonImageStyle}"/>
+                    <Label Content="Regije" Style="{StaticResource ButtonLabelStyle}"/>
+                </StackPanel>
+            </Button>
+
+        </StackPanel>
+
+    </DockPanel>
+</UserControl>

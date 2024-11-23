@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="PresentationLayer.UserControls.Recommendations"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PresentationLayer.UserControls" xmlns:viewmodels="clr-namespace:PresentationLayer.ViewModels"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel
+        Margin="0,20">
+        <TextBlock
+            Text="Moje Preporuke"
+            FontSize="20"/>
+        <ScrollViewer 
+            ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+            ScrollViewer.VerticalScrollBarVisibility="Hidden">
+            <ItemsControl
+        x:Name="icAuctions"
+        d:DataContext="{d:DesignInstance Type=viewmodels:AuctionListViewModel}"
+        Margin="0 20 0 0"
+        ItemsSource="{Binding RecommendedModels}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <local:RecommendedCard RecommendedAuction="{Binding Auction}" NavigationControl="{Binding NavigationControl}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </StackPanel>
+</UserControl>

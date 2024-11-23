@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="PresentationLayer.Pages.MyAuctionsPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PresentationLayer.Pages"
+             Loaded="UserControl_Loaded"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="White">
+        <StackPanel Orientation="Horizontal" Margin="0,0,10,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" >
+            <Button x:Name="btnGetStatistics" Content="Dohvati statistiku" Click="btnGetStatistics_Click"  Margin="0,0,20,0" Visibility="Collapsed" Width="99"/>
+            <Button x:Name="btnDeleteAuction" Content="Obriši aukciju" Click="btnDeleteAuction_Click" Margin="0,0,20,0" Width="99"/>
+            <Button x:Name="btnDetails" Content="Detalji aukcije" Click="btnDetails_Click" Margin="0,0,20,0" Width="106"/>
+            <Button x:Name="btnCreateAuction" Content="Kreiraj aukciju" Click="btnCreateAuction_Click"  Width="140"/>
+        </StackPanel>
+       
+        <DataGrid x:Name="dgMyAuctions"  IsReadOnly="True" SelectionMode="Single" Margin="10,10,10,292" SelectionChanged="dgMyAuctions_SelectionChanged"/>
+        <StackPanel Orientation="Vertical" Margin="10,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Bottom" x:Name="stckPnlStats" Visibility="Collapsed">
+            <Label Content="Brza statistika" FontWeight="Bold" HorizontalAlignment="Center" FontSize="15"></Label>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Naziv aukcije"></Label>
+                <Label x:Name="lblAuctionName" Content="Label"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Najveći ponuditelj"></Label>
+                <Label x:Name="lblHighestBidder" Content="Label"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Iznos ponude"></Label>
+                <Label x:Name="lblBidAmount" Content="Label"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Vrijeme ponude"></Label>
+                <Label x:Name="lblBidTime" Content="Label"></Label>
+            </StackPanel>
+            <Button Content="Izvezi u PDF" Click="Button_Click" Visibility="Collapsed" x:Name="btnPDFExport"></Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

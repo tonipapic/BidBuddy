@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="PresentationLayer.Pages.ProfilePage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PresentationLayer.Pages"
+             Loaded="UserControl_Loaded"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="White">
+        <ScrollViewer>
+            <StackPanel Margin="20">
+                <TextBlock FontSize="24" FontWeight="Bold" Text="Korisničko ime:"/>
+                <TextBlock x:Name="txtUsername" FontSize="18"/>
+
+                <TextBlock FontSize="24" FontWeight="Bold" Text="Ime:"/>
+                <TextBox x:Name="txtFirstName" FontSize="18" Width="200" HorizontalAlignment="Left"/>
+
+                <TextBlock FontSize="24" FontWeight="Bold" Text="Prezime:"/>
+                <TextBox x:Name="txtLastName" FontSize="18" Width="200" HorizontalAlignment="Left"/>
+
+                <TextBlock FontSize="24" FontWeight="Bold" Text="Email:"/>
+                <TextBox x:Name="txtEmail" FontSize="18" Width="200" HorizontalAlignment="Left"/>
+
+                <TextBlock FontSize="24" FontWeight="Bold" Text="Broj mobitela:"/>
+                <TextBox x:Name="txtPhoneNumber" FontSize="18" Width="200" HorizontalAlignment="Left"/>
+
+                <TextBlock FontSize="24" FontWeight="Bold" Text="IBAN:"/>
+                <TextBox x:Name="txtIban" FontSize="18" Width="200" HorizontalAlignment="Left"/>
+
+                <Button x:Name="btnUpdate" Content="Ažuriraj" Width="100" HorizontalAlignment="Left" Margin="0,10,0,0" FontSize="18" Click="btnUpdate_Click"></Button>
+
+                <DataGrid Name="dataGridAuctions" AutoGenerateColumns="False" Width="400" HorizontalAlignment="Left" Margin="0,10,0,0">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Naziv aukcije" Binding="{Binding Name}" Width="150" />
+                        <DataGridTextColumn Header="Opis" Binding="{Binding Description}" Width="300" />
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Button x:Name="btnLogut" Content="Odjavi se" Width="100" FontSize="18" HorizontalAlignment="Left" Margin="0,10,0,0" Click="btnLogut_Click"></Button>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

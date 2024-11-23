@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="PresentationLayer.UserControls.RecommendedCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PresentationLayer.UserControls"
+             xmlns:AppTheme="clr-namespace:PresentationLayer.ApplicationTheme" 
+             mc:Ignorable="d" 
+             d:DesignHeight="192" d:DesignWidth="216"
+             Loaded="UserControl_Loaded">
+    <Border 
+        MouseLeftButtonDown="AuctionClicked"
+        Margin="0,0,24,0"
+        BorderBrush="Black"
+        BorderThickness="1"
+        CornerRadius="8"
+        Width="192"
+        Height="192">
+        <Border.Background>
+            <SolidColorBrush Color="{x:Static AppTheme:AppColors.TernaryPurple}"/>
+        </Border.Background>
+        <StackPanel>
+            <TextBlock 
+                Margin="0,12,0,8"
+                x:Name="lblName" 
+                TextAlignment="Center"
+                FontSize="16"
+                TextTrimming="CharacterEllipsis">
+                <TextBlock.Foreground>
+                    <SolidColorBrush Color="{x:Static AppTheme:AppColors.BackgroundWhite}"/>
+                </TextBlock.Foreground>
+            </TextBlock>
+            <Image
+                x:Name="imgAuctionImage"
+                Width="128"
+                Height="128"
+                Stretch="Fill" />
+        </StackPanel>
+    </Border>
+</UserControl>

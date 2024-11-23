@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="PresentationLayer.Navigation.NavigationTitleBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PresentationLayer.Navigation"
+             mc:Ignorable="d" 
+             d:DesignHeight="71.667" d:DesignWidth="394.667">
+    <StackPanel Background="White" Orientation="Horizontal">
+
+        <Button x:Name="btnGoBack" Click="btnGoBack_Click" HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Image Source="/Resources/Icons/icon-arrow-left.png" Width="32" Height="32"/>
+        </Button>
+
+        <Label x:Name="lblTitle" Content="Aukcije" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="24" />
+
+    </StackPanel>
+</UserControl>

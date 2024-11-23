@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="PresentationLayer.Pages.CategoriesPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PresentationLayer.Pages"
+             Loaded="UserControl_Loaded"
+             mc:Ignorable="d" 
+             d:DesignHeight="676.5" d:DesignWidth="889">
+    <Grid Background="White">
+        <TreeView x:Name="tvCategories" Margin="10,10,10,224" SelectedItemChanged="tvCategories_SelectedItemChanged" />
+
+        <StackPanel Orientation="Horizontal" Margin="10,5,10,20" Height="140" VerticalAlignment="Bottom">
+            <GroupBox x:Name="gbEditCategory" Header="Uredi kategoriju" Height="140" Width="355" Margin="0,0,20,0">
+                <Grid>
+
+                    <Label Content="Naziv kategorije" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" />
+                    <TextBox x:Name="txtEditCategoryName" HorizontalAlignment="Left" Margin="10,36,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="210" />
+                    <StackPanel  Margin="10,76,10,0" Orientation="Horizontal" VerticalAlignment="Top">
+                        <Button x:Name="btnSave" Click="btnSave_Click" Content="Pohrani promijene" VerticalAlignment="Top" Width="114" />
+                        <Button x:Name="btnCancel" Click="btnCancel_Click" Content="Odustani" VerticalAlignment="Top" Margin="10,0,0,0" Width="63"  />
+                        <Button x:Name="btnDelete" Click="btnDelete_Click" Content="Obriši kategoriju" VerticalAlignment="Top" Margin="10,0,0,0" Width="105" />
+                    </StackPanel>
+
+                </Grid>
+            </GroupBox>
+            <GroupBox x:Name="gbAddCategory" Header="NASLOV DODAJ KATEGORIJU" Height="140" Width="365">
+                <Grid>
+
+                    <Label Content="Naziv kategorije" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtAddCategoryName" HorizontalAlignment="Left" Margin="10,36,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="210" />
+                    <StackPanel  Margin="10,76,10,0" Orientation="Horizontal" VerticalAlignment="Top">
+                        <Button x:Name="btnAddCategory" Click="btnAddCategory_Click" Content="Dodaj kategoriju" VerticalAlignment="Top" Width="106" />
+                        <Button x:Name="btnAddSubCategory" Click="btnAddSubCategory_Click" Content="Dodaj podkategoriju" VerticalAlignment="Top" Width="132" />
+                    </StackPanel>
+
+                </Grid>
+            </GroupBox>
+
+        </StackPanel>
+        <Button x:Name="btnRefresh" Content="Osvježi" HorizontalAlignment="Left" Margin="10,0,0,186" VerticalAlignment="Bottom" Width="68" Click="btnRefresh_Click"/>
+
+
+    </Grid>
+</UserControl>

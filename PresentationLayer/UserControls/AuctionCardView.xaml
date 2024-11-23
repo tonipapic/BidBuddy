@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="PresentationLayer.UserControls.AuctionCardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:viewmodels="clr-namespace:PresentationLayer.ViewModels" xmlns:usercontrols="clr-namespace:PresentationLayer.UserControls" d:DataContext="{d:DesignInstance Type=viewmodels:AuctionViewModel}"
+             mc:Ignorable="d" 
+             d:DesignHeight="350" d:DesignWidth="280"
+             MaxWidth="280"
+             Width="280"
+             MouseEnter="PointerEnter"
+             MouseLeave="PointerLeave"
+             MouseLeftButtonDown="OpenAuctionDetails">
+    <Border
+        x:Name="bdrBackground"
+        Margin="20"
+        Background="White"
+        BorderBrush="Gray"
+        CornerRadius="16" 
+        BorderThickness="1">
+        <StackPanel HorizontalAlignment="Center">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Margin" Value="10"/>
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock 
+                x:Name="txtBoxName"
+                Margin="8"
+                FontSize="20"
+                TextTrimming="CharacterEllipsis"
+                HorizontalAlignment="Center"
+                Text="{Binding Auction.Name}"
+                ></TextBlock>
+            <TextBlock 
+                x:Name="txtBoxUsername"
+                Margin="8">
+                    <Run Text="Autor: "></Run>
+                    <Run Text="{Binding Auction.User.Username}"/>
+            </TextBlock>
+            <usercontrols:AuctionImagesView 
+                x:Name="aivImages"
+                MaxWidth="200"
+                MaxHeight="200"
+                Height="200"
+                Width="180"
+                Margin="8"/>
+            <TextBlock 
+                x:Name="txtBlockEndDate"
+                HorizontalAlignment="Center"/>
+            <RichTextBox
+                x:Name="txtBlockCurrentBid"
+                BorderThickness="0"
+                Height="20"/>
+            <Button 
+                Margin="20 10 20 10" 
+                Height="25"
+                Content="Detalji"
+                x:Name="btnDetalji"
+                Click="OpenAuctionDetails"
+                >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+    </Border>
+</UserControl>

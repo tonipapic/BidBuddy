@@ -1,0 +1,192 @@
+﻿<UserControl x:Class="PresentationLayer.Pages.AuctionsPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewmodels="clr-namespace:PresentationLayer.ViewModels"
+             xmlns:UserControls="clr-namespace:PresentationLayer.UserControls"
+             xmlns:AppTheme="clr-namespace:PresentationLayer.ApplicationTheme" xmlns:controls="clr-namespace:PresentationLayer.Resources.Controls"
+             mc:Ignorable="d" 
+             Loaded="PageLoaded"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <ScrollViewer>
+        <StackPanel>
+            <StackPanel>
+                <UserControls:Recommendations/>
+                <Expander
+                ExpandDirection="Right"
+                x:Name="expFilters"
+                Padding="8"
+                HorizontalAlignment="Left"
+                Header="Filtriraj aukcije"
+                MinWidth="100"
+                >
+                    <Expander.Background>
+                        <SolidColorBrush Color="{x:Static AppTheme:AppColors.AccentOrange}"></SolidColorBrush>
+                    </Expander.Background>
+                    <StackPanel>
+                        <WrapPanel Orientation="Horizontal">
+                            <WrapPanel.Resources>
+                                <Style TargetType="{x:Type TextBox}">
+                                    <Setter Property="Margin" Value="10,20,40,0"/>
+                                    <Setter Property="TextWrapping" Value="NoWrap"/>
+                                    <Setter Property="AcceptsReturn" Value="False"/>
+                                    <Setter Property="Width" Value="150"/>
+                                    <Setter Property="Height" Value="18"/>
+                                </Style>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="Margin" Value="10,20,0,0"/>
+                                </Style>
+                                <Style TargetType="{x:Type Button}">
+                                    <Setter Property="Margin" Value="20,20,0,0"/>
+                                    <Setter Property="Padding" Value="8"/>
+                                </Style>
+                                <Style TargetType="{x:Type StackPanel}">
+                                    <Setter Property="Orientation" Value="Horizontal"/>
+                                </Style>
+                            </WrapPanel.Resources>
+                            <StackPanel>
+                                <TextBlock
+                                Text="Naziv aukcije: "/>
+                                <TextBox
+                                x:Name="txtBoxAuctioName"/>
+                            </StackPanel>
+                            <StackPanel>
+                                <TextBlock
+                                 Text="Autor aukcije: "/>
+                                <TextBox
+                                 x:Name="txtBoxAuthor"/>
+                            </StackPanel>
+                            <StackPanel>
+                                <TextBlock
+                                 Text="Datum završetka: "/>
+                                <controls:ExtendedDatePicker
+                            Background="White"
+                            Margin="10,20,40,0"
+                            Height="24"
+                            x:Name="dpUntil"
+                            />
+                            </StackPanel>
+                            <StackPanel>
+                                <TextBlock 
+                                Text="Regija aukcije:"/>
+                                <ComboBox
+                                    x:Name="cmbPickRegion"
+                                    Margin="10,20,40,0"
+                                    Padding="0"
+                                    Height="20"
+                                    MinWidth="150"> 
+                                </ComboBox>
+                            </StackPanel>
+                            <StackPanel>
+                                <TextBlock Text="Kategorija aukcije:"/>
+                                <Button 
+                                    x:Name="btnCategory"
+                                    Click="SelectCategory"
+                                    Content="Odaberi"
+                                    Margin="10,20,40,0"
+                                    Padding="0"
+                                    Width="150"
+                                    Height="20"/>
+                            </StackPanel>
+                            <StackPanel>
+                                <TextBlock
+                                Text="Samo provjereni korisnici: "/>
+                                <CheckBox
+                                x:Name="chkBoxIsVerified"
+                                Margin="10,20,40,0"/>
+                            </StackPanel>
+                        </WrapPanel>
+                        <StackPanel 
+                        Margin="20"
+                        Orientation="Horizontal">
+                            <StackPanel.Resources>
+                                <Style TargetType="{x:Type Button}">
+                                    <Setter Property="Margin" Value="10,10,0,0"/>
+                                    <Setter Property="Padding" Value="4"/>
+                                </Style>
+                            </StackPanel.Resources>
+                            <Button 
+                            Content="Pretraži"
+                            Click="SearchAuctions"/>
+                            <Button 
+                            Content="Obriši filtere"
+                            Click="ClearFilters"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Expander>
+                <Expander
+                ExpandDirection="Right"
+                x:Name="expSorting"
+                Padding="8"
+                HorizontalAlignment="Left"
+                MinWidth="100">
+                    <Expander.Background>
+                        <SolidColorBrush Color="{x:Static AppTheme:AppColors.AccentOrange}"></SolidColorBrush>
+                    </Expander.Background>
+                    <Expander.Header>
+                        <Border>
+                            <TextBlock Foreground="White" Text="Sortiraj aukcije" 
+                                HorizontalAlignment="Stretch" />  
+                        </Border>
+                    </Expander.Header>
+                    <WrapPanel>
+                        <WrapPanel.Resources>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <EventSetter Event="MouseLeftButtonDown" Handler="UpdateSortingOption"/>
+                                <EventSetter Event="MouseRightButtonDown" Handler="UpdateSortingOption"/>
+                                <Setter Property="FontSize" Value="18"/>
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <SolidColorBrush Color="{x:Static AppTheme:AppColors.PlainOrange}"/>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="Foreground">
+                                    <Setter.Value>
+                                        <SolidColorBrush Color="{x:Static AppTheme:AppColors.BackgroundBlack}"/>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                <Setter Property="Margin" Value="4"/>
+                                <Setter Property="Padding" Value="8"/>
+                            </Style>
+                        </WrapPanel.Resources>
+                        <TextBlock 
+                            Tag="Recent"
+                            Text="Najnovije"/>
+                        <TextBlock
+                            Tag="Ending"    
+                            Text="Završava"/>
+                        <TextBlock
+                            Tag="MostWanted"
+                            Text="Najtraženije"/>
+                        <TextBlock
+                            Tag="Cheap"
+                            Text="Aukcije 1€"/>
+                        <TextBlock
+                            Tag="Valuable"
+                            Text="Najvrijednije"/>
+                    </WrapPanel>
+                </Expander>
+            </StackPanel>
+            <ItemsControl d:DataContext="{d:DesignInstance Type=viewmodels:AuctionListViewModel}"
+                      Grid.Row="1" 
+            Margin="0 20 0 0"
+            ItemsSource="{Binding AuctionViewModels}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <UserControls:AuctionCardView NavigationControl="{Binding NavigationControl}" Auction="{Binding Auction}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+    </ScrollViewer>
+
+</UserControl>
